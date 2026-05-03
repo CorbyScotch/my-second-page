@@ -1,0 +1,877 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+:root {
+  /* used to store css variables (like variables in PLs) */
+  --primary-color: #6c63ff;
+  --secondary-color: #f50057;
+  --dark-color: #0a0a0a;
+  --dark-secondary: #1a1a2e;
+  --card-color: #16213e;
+  --text-color: #e0e0e0;
+  --text-muted: #a0a0a0;
+  --border-color: #2a2a2a;
+  --gradient: linear-gradient(135deg, #6c63ff, #f500f5);
+}
+
+/* reset and base settings */
+* {
+  /* wildcard selector: used to select all elements on html page */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* make sure size doesn't go over when width, and padding are added */
+}
+
+html {
+  /* makes clicking the navs go to areas on the page smoothly instead of jumping */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--dark-color); /* var() is used to call css variables */
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.section-header-div {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-header-div h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: var(--gradient);
+  /* background-clip and -webkit-background-clip are same: make text have gradient colors*/
+  background-clip: text; /* only fill gradient color to text letters but text letters are white so covers the color and thus won't work yet*/
+  /* -webkit is like an experimental feature (of background-clip) by Chrome & Safari, like beta version until it is widely supported. writing both ensures it works on every browser */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* makes the text's white color transparent so the gradient color will show inside */
+  margin-bottom: 10px;
+}
+
+.section-subtitle-p {
+  color: var(--text-muted);
+  font-size: 1rem; /* by default is 16px as by html. changing in html affects it */
+}
+
+section {
+  padding: 100px 10%; /* 100px top and bottom, 10% left and right */
+}
+
+/* HEADER */
+header {
+  /* default position is static. can't move with top, left, etc. */
+  position: fixed; /* stick to top when scrolling */
+  /* pins to very top, starting from left, stretched to take full screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* prioritizes it above all, always on top as long as no other index is higher */
+  padding: 20px 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease; /* all changes to this element animate smoothly over 0.3s */
+}
+
+header.scrolled {
+  /* scrolled is a property waiting to be added by javascript.
+  adding header ensures it is only added if the element is a header, else ignored */
+  background-color: rgba(
+    10,
+    10,
+    10,
+    0.95
+  ); /* last value for opacity, 0 fully transparent, 1 fully opagque*/
+  border-bottom: 1px solid var(--border-color);
+  padding: 15px 10%;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.logo-span {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  cursor: pointer;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+}
+
+nav ul li a {
+  color: var(--text-color);
+  text-decoration: none; /* removes the default underline from links */
+  font-size: 0.95rem;
+  font-weight: 500;
+  position: relative; /* becomes a reference point for subsequent absolute position */
+  transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+  /* pseudo element: creates a fake element after each link */
+  content: "";
+  position: absolute; /* looks for a relative position and sticks to it */
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px; /* makes a thin line */
+  background: var(--gradient);
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: var(--primary-color);
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+#hero-section {
+  min-height: 100vh; /*viewport height: screen height, 100 means as high as whatever screens size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden; /* hide any child element who goes over the section */
+}
+
+#hero-section::before {
+  /* pseudo-element before actual element */
+  /* border: solid white; */
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    /* spreads outward from a center point like ripples in water */ circle at
+      center,
+    rgba(108, 99, 255, 0.1) 0%,
+    rgba(245, 0, 87, 0.05) 40%,
+    transparent 70%
+  );
+  /* creates an animation called rotateBg which takes 20s to complete, moves at constant speed (linear) and repeats forever (infinite) */
+  animation: rotateBg 20s linear infinite;
+}
+
+@keyframes rotateBg {
+  /* defines what the animation does. like a flipping book, from 0deg to 360deg (full circle) */
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.hero-content-div {
+  text-align: center;
+  z-index: 1;
+  max-width: 800px;
+  /* border: solid white; */
+}
+
+.greeting-p {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.hero-name-h1 {
+  /* not smaller than 2.5rem, ideally 8% of screen width (8vw), not bigger than 5 rem) */
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 700;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+  margin-bottom: 15px;
+  /* border: solid white; */
+}
+
+.hero-title-h2 {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: var(--text-muted);
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.cursor-span {
+  display: inline-block;
+  color: var(--primary-color);
+  font-weight: 300;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.hero-description-p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+.hero-buttons-div {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap; /* if buttons don't fit on one line (like mobile), wrap to next line instead of overflowing */
+}
+
+.btn {
+  /* border: solid white; */
+  padding: 14px 35px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: var(--gradient);
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(108, 99, 255, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-color);
+  border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* ABOUT SECTION */
+#about-section {
+  background-color: var(--dark-secondary);
+}
+
+.about-content-div {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.about-image-div {
+  /* when flexbox runs out of space it shrinks items to fit. this prevents image from shrinking */
+  flex-shrink: 0;
+}
+
+.about-image-div img {
+  width: 300px;
+  height: 300px;
+  border-radius: 20px;
+  object-fit: cover; /* keeps image proportion while filling a space. might crop */
+  border: 3px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.about-image-div img:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40 px rgba(108, 99, 255, 0.3);
+}
+
+.about-text-div {
+  flex: 1; /* take all remaining space */
+}
+
+.about-text-div h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: var(--text-color);
+}
+
+.about-text-div p {
+  color: var(--text-muted);
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+}
+
+.about-info-div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* divides grid into 2 equal columns */
+  gap: 15px;
+  margin: 30px 0;
+}
+
+.info-item-div {
+  display: flex;
+  flex-direction: column; /* rotate top to bottom */
+  gap: 4px;
+}
+
+.info-label-span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.info-value-span {
+  font-size: 0.95rem;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+/* SKILLS SECTION */
+#skills-section {
+  background-color: var(--dark-color);
+}
+
+.skills-content-div {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.skill-category-div h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.skill-items-div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.skill-item-div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--card-color);
+  border: 1px solid var(--border-color);
+  padding: 15px 25px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  cursor: default; /* hovering over something clickable changes cursor to hand. this prevents that since skills aren't clickable*/
+}
+
+.skill-item-div:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(108, 99, 255, 0.2);
+  background-color: rgba(108, 99, 255, 0.1);
+}
+
+.skill-icon-span {
+  font-size: 1.5rem;
+}
+
+.skill-name-span {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+/* PROJECTS SECTION */
+#projects-section {
+  background-color: var(--dark-secondary);
+}
+
+.projects-grid-div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.project-card-article {
+  border-color: var(--card-color);
+  border: 2px solid var(--border-color);
+  border-radius: 20px;
+  padding: 30px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.project-card-article:hover {
+  transform: translateY(-8px);
+  border-color: var(--primary-color);
+  box-shadow: 0 20px 40px rgba(108, 99, 255, 0.2);
+}
+
+.project-card-header-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.project-icon-span {
+  font-size: 2.5rem;
+}
+
+.project-links-div {
+  display: flex;
+  gap: 15px;
+}
+
+.project-link-a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 5px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.project-link-a:hover {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.project-title-h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.project-description-p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  flex: 1;
+}
+
+.project-tags-div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag-span {
+  background: rgba(108, 99, 255, 0.15);
+  color: var(--primary-color);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* CONTACT SECTION */
+
+#contact-section {
+  border-color: var(--dark-color);
+}
+
+.contact-content-div {
+  display: flex;
+  gap: 80;
+  align-items: flex-start; /* when 2 element are side by side and one is taller than the other, flex-start align both to the top so they all start from the top */
+}
+
+.contact-info-div {
+  flex: 1;
+}
+
+.contact-info-div h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 15px;
+}
+
+.contact-info-div p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.contact-details-div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-item-div {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.contact-icon-span {
+  font-size: 1.3rem;
+  width: 45px;
+  height: 45px;
+  background-color: var(--card-color);
+  border: 1px solid var(--border-color);
+  border-radius: 50%; /* creates a perfect circle on an element with equal width and height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+/* descendant selector: styling .contact-icon-span when .contact-item-div is hovered */
+.contact-item-div:hover .contact-icon-span {
+  border-color: var(--primary-color);
+  background-color: rgba(108, 99, blue, 255 0.1);
+}
+
+/* CONTACT FORM */
+.contact-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group-div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group-div label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+/* comma-separated to apply style to both elements */
+.form-group-div input,
+.form-group-div textarea {
+  background-color: var(--card-color);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 14px 18px;
+  color: var(--text-color);
+  font-size: 0.95rem;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease;
+  outline: none; /* removes default blue outline around focused inputs */
+  resize: none; /* disables the ability to drag the textarea box to resize */
+}
+
+/* style when input fields are clicked */
+.form-group-div input:focus,
+.form-group-div textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.15);
+}
+
+/* styling the placeholder text. although different from before and after, to style is you call it same as those 2 ghost elements */
+.form-group-div input::placeholder,
+.form-group-div textarea::placeholder {
+  color: var(--text-muted);
+}
+
+/* FOOTER */
+footer {
+  background-color: var(--dark-secondary);
+  border-top: 1px solid var(--border-color);
+  padding: 40px 10%;
+}
+
+.footer-content-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.footer-name-p {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.footer-tagline-p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.footer-links-div {
+  display: flex;
+  gap: 30px;
+}
+
+.footer-links-div a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links-div a:hover {
+  color: var(--primary-color);
+}
+
+.footer-copy-p {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+  width: 100%;
+  text-align: center;
+}
+
+/* SCROLL ANIMATION */
+.hidden {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Add transition to all animatable elements */
+.hero-content-div,
+.about-content-div,
+.skill-category-div,
+.project-card-article,
+.contact-content-div,
+.footer-content-div {
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+/* FORM MESSAGES */
+.form-message {
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  animation: slideDown 0.3s ease;
+}
+
+.form-message.success {
+  background-color: rgba(0 200, 100, 0.15);
+  border: 1px solid rgba(0 200, 100, 0.4);
+  color: #00c864;
+}
+
+.form-message.error {
+  background-color: rgba(245, 0, 87, 0.15);
+  border: 1px solid rgba(245, 0, 87, 0.4);
+  color: #f50057;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MEDIA QUERY (MOBILE PHONE RESPONSIVE DESIGN) */
+
+@media (max-width: 1024px) {
+  section {
+    padding: 80px 6%;
+  }
+
+  header {
+    padding: 20px 6%;
+  }
+
+  header.scrolled {
+    padding: 15px 6%;
+  }
+
+  .projects-grid-div {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-content-div {
+    gap: 40px;
+  }
+}
+
+/* hiding hamburger on desktop view */
+.hamburger-button {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* NAVBAR */
+  nav ul {
+    display: none;
+  }
+
+  /* HERO */
+  .hero-name-h1 {
+    font-size: 3rem;
+  }
+
+  .hero-buttons-div {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ABOUT */
+  .about-content-div {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-image-div img {
+    width: 250px;
+    height: 250px;
+  }
+
+  .about-info-div {
+    grid-template-columns: 1fr;
+  }
+
+  /* PROJECTS */
+  .projects-grid-div {
+    grid-template-columns: 1fr;
+  }
+
+  /* CONTACT */
+  .contact-content-div {
+    flex-direction: column;
+  }
+
+  /* FOOTER */
+  .footer-links-div {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  /* HAMBURGER */
+  .hamburger-button {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1001;
+  }
+
+  .hamburger-button span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: var(--text-color);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+  }
+
+  /* MOBILE MENU OPEN */
+  .hamburger-button.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .hamburger-button.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger-button.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* MOBILE NAV MENU */
+  nav ul.open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--dark-secondary);
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    z-index: 1000;
+  }
+
+  nav ul.open li a {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 60px 5%;
+  }
+  header {
+    padding: 15px 5%;
+  }
+  .hero-name-h1 {
+    font-size: 2.5rem;
+  }
+  .section-header-div h2 {
+    font-size: 2rem;
+  }
+  .about-image-div img {
+    width: 200px;
+    height: 200px;
+  }
+  .project-card-article {
+    padding: 20px;
+  }
+  .btn {
+    padding: 12px 25px;
+    font-size: 0.9rem;
+  }
+  .footer-links-div {
+    gap: 10px;
+  }
+}
