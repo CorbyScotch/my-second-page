@@ -1,289 +1,367 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <nav>
-      <span class="logo-span">Brainiac-Sama</span>
-      <ul>
-        <li><a href="#hero-section">Home</a></li>
-        <li><a href="#about-section">About</a></li>
-        <li><a href="#skills-section">Skills</a></li>
-        <li><a href="#projects-section">Projects</a></li>
-        <li><a href="#contact-section">Contact</a></li>
-      </ul>
-      <button class="hamburger-button" id="hamburger-button">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </nav>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <span class="logo-span">Brainiac-Sama</span>
+        <ul>
+          <li><a href="#hero-section">Home</a></li>
+          <li><a href="#about-section">About</a></li>
+          <li><a href="#skills-section">Skills</a></li>
+          <li><a href="#projects-section">Projects</a></li>
+          <li><a href="#contact-section">Contact</a></li>
+        </ul>
+        <button class="hamburger-button" id="hamburger-button">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </header>
 
-  <main>
-    <section id="hero-section">
-      <div class="hero-content-div">
-        <p class="greeting-p">Hi, there, I'm</p>
-        <h1 class="hero-name-h1">Brainiac-Sama</h1>
-        <h2 class="hero-title-h2">
-          <span id="typing-text-span"></span>
-          <span class="curor-span">|</span>
-        </h2>
-        <p class="hero-description-p">I'm a Computer Science student who loves building things and solving problems with code.</p>
-        <div class="hero-buttons-div">
-          <a href="#projects" class="btn btn-primary">View My Work</a>
-          <a href="#contacts" class="btn btn-secondary">Contact Me</a>
-        </div>
-      </div>
-      
-    </section>
-
-    <section id="about-section">
-      <div class="section-header-div">
-        <h2>About Me</h2>
-        <p class="section-subtitle-p">Get to know me</p>
-      </div>
-      <div class="about-content-div">
-        <div class="about-image-div">
-          <img src="images/300x300.svg" alt="A photo of me">
-        </div>
-        <div class="about-text-div">
-          <h3>Who am I?</h3>
-          <p>
-            I'm a Computer Science student with a passion for writing clean code and building useful things. I enjoy learning new technologies and taking on challenging problems.
+    <main>
+      <section id="hero-section">
+        <div class="hero-content-div">
+          <p class="greeting-p">Hi, there, I'm</p>
+          <h1 class="hero-name-h1">Brainiac-Sama</h1>
+          <h2 class="hero-title-h2">
+            <span id="typing-text-span"></span>
+            <span class="curor-span">|</span>
+          </h2>
+          <p class="hero-description-p">
+            I'm a Computer Science student who loves building things and solving
+            problems with code.
           </p>
-          <p>
-            When i'm not coding, you can find me being on my phone, reading, teaching, or exploring new ideas
-          </p>
-          <div class="about-info-div">
-            <div class="info-item-div">
-              <span class="info-label-span">Name:</span>
-              <span class="info-value-span">Brainiac-Sama</span>
-            </div>
-            <div class="info-item-div">
-              <span class="info-label-span">School:</span>
-              <span class="info-value-span">Koforidua Technical University</span>
-            </div>
-            <div class="info-item-div">
-              <span class="info-label-span">Level:</span>
-              <span class="info-value-span">200</span>
-            </div>
-            <div class="info-item-div">
-              <span class="info-label-span">Email:</span>
-              <span class="info-value-span">gidosac11@gmail.com</span>
-            </div>
-          </div>
-          <a href="#contact" class="btn btn-primary">Let's Talk</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills-section">
-      <div class="section-header-div">
-        <h2>My Skills</h2>
-        <p class="section-subtitle-p">What I work with</p>
-      </div>
-      <div class="skills-content-div">
-
-        <div class="skill-category-div">
-          <h3>Languages</h3>
-          <div class="skill-items-div">
-            <div class="skill-item-div">
-              <span class="skill-icon-span">🐍</span>
-              <span class="skill-name-span">Python</span>
-            </div>
-            <div class="skill-item-div">
-              <span class="skill-icon-span">🧑🏿‍💻</span>
-              <span class="skill-name-span">JavaScript</span>
-            </div>
-            <div class="skill-item-div">
-              <span class="skill-icon-span">🪟</span>
-              <span class="skill-name-span">VB.Net</span>
-            </div>
-            <div class="skill-item-div">
-              <span class="skill-icon-span">⚙️</span>
-              <span class="skill-name-span">C++</span>
-            </div>
-            <div class="skill-item-div">
-              <span class="skill-icon-span">🌐</span>
-              <span class="skill-name-span">HTML</span>
-            </div>
-            <div class="skill-item-div">
-              <span class="skill-icon-span">🎨</span>
-              <span class="skill-name-span">CSS</span>
-            </div>
+          <div class="hero-buttons-div">
+            <a href="#projects" class="btn btn-primary">View My Work</a>
+            <a href="#contacts" class="btn btn-secondary">Contact Me</a>
           </div>
         </div>
+      </section>
 
-        <div class="skill-category-div">
-          <h3>Tools</h3>
-          <div class="skill-items-div">
-            <div class="skill-item-div">
-              <span class="skill-icon-span">💻</span>
-              <span class="skill-name-span">VS Code</span>
+      <section id="about-section">
+        <div class="section-header-div">
+          <h2>About Me</h2>
+          <p class="section-subtitle-p">Get to know me</p>
+        </div>
+        <div class="about-content-div">
+          <div class="about-image-div">
+            <img src="images/300x300.svg" alt="A photo of me" />
+          </div>
+          <div class="about-text-div">
+            <h3>Who am I?</h3>
+            <p>
+              I'm a Computer Science student with a passion for writing clean
+              code and building useful things. I enjoy learning new technologies
+              and taking on challenging problems.
+            </p>
+            <p>
+              When i'm not coding, you can find me being on my phone, reading,
+              teaching, or exploring new ideas
+            </p>
+            <div class="about-info-div">
+              <div class="info-item-div">
+                <span class="info-label-span">Name:</span>
+                <span class="info-value-span">Brainiac-Sama</span>
+              </div>
+              <div class="info-item-div">
+                <span class="info-label-span">School:</span>
+                <span class="info-value-span"
+                  >Koforidua Technical University</span
+                >
+              </div>
+              <div class="info-item-div">
+                <span class="info-label-span">Level:</span>
+                <span class="info-value-span">200</span>
+              </div>
+              <div class="info-item-div">
+                <span class="info-label-span">Email:</span>
+                <span class="info-value-span">gidosac11@gmail.com</span>
+              </div>
             </div>
-            <div class="skill-item-div">
-              <span class="skill-icon-span">🖥️</span>
-              <span class="skill-name-span">Visual Studio</span>
-            </div>
-            <div class="skill-item-div">
-              <span class="skill-icon-span">🐙</span>
-              <span class="skill-name-span">Git</span>
-            </div>
+            <a href="#contact" class="btn btn-primary">Let's Talk</a>
           </div>
         </div>
+      </section>
 
-        <div class="skill-category-div">
-          <h3>Concepts</h3>
-          <div class="skill-items-div">
-            <div class="skill-item-div">
-              <span class="skill-icon-span">🧩</span>
-              <span class="skill-name-span">OOP</span>
-            </div>
-            <div class="skill-item-div">
-              <span class="skill-icon-span">🔢</span>
-              <span class="skill-name-span">Data Structures</span>
-            </div>
-            <div class="skill-item-div">
-              <span class="skill-icon-span">🔍</span>
-              <span class="skill-name-span">Algorithms</span>
-            </div>
-          </div>
+      <section id="skills-section">
+        <div class="section-header-div">
+          <h2>My Skills</h2>
+          <p class="section-subtitle-p">What I work with</p>
         </div>
-
-      </div>
-    </section>
-
-    <section id="projects-section">
-      <div class="section-header-div">
-        <h2>My Projects</h2>
-        <p class="section-subtitle-p">Things I have built</p>
-      </div>
-      <div class="projects-grid-div">
-
-        <article class="project-card-article">
-          <div class="project-card-header-div">
-            <span class="project-icon-span">🧮</span>
-            <div class="project-links-div">
-              <a href="#" class="project-link-a">Code</a>
-              <a href="#" class="project-link-a">Live</a>
+        <div class="skills-content-div">
+          <div class="skill-category-div">
+            <h3>Languages</h3>
+            <div class="skill-items-div">
+              <div class="skill-item-div">
+                <span class="skill-icon-span">🐍</span>
+                <span class="skill-name-span">Python</span>
+              </div>
+              <div class="skill-item-div">
+                <span class="skill-icon-span">🧑🏿‍💻</span>
+                <span class="skill-name-span">JavaScript</span>
+              </div>
+              <div class="skill-item-div">
+                <span class="skill-icon-span">🪟</span>
+                <span class="skill-name-span">VB.Net</span>
+              </div>
+              <div class="skill-item-div">
+                <span class="skill-icon-span">⚙️</span>
+                <span class="skill-name-span">C++</span>
+              </div>
+              <div class="skill-item-div">
+                <span class="skill-icon-span">🌐</span>
+                <span class="skill-name-span">HTML</span>
+              </div>
+              <div class="skill-item-div">
+                <span class="skill-icon-span">🎨</span>
+                <span class="skill-name-span">CSS</span>
+              </div>
             </div>
           </div>
-          <h3 class="project-title-h3">Calculator App</h3>
-          <p class="project-description-p">
-            A simple Calculator built with Python and also with Visual Basic .Net (GUI) that handles arithmetric operations.
-          </p>
-          <div class="project-tags-div">
-            <span class="tag-span">Python</span>
-            <span class="tag-span">Visual Basic .Net</span>
-          </div>
-        </article>
 
-        <article class="project-card-article">
-          <div class="project-card-header-div">
-            <span class="project-icon-span">📋</span>
-            <div class="project-links-div">
-              <a href="#" class="project-link-a">Code</a>
-              <a href="#" class="project-link-a">Live</a>
+          <div class="skill-category-div">
+            <h3>Tools</h3>
+            <div class="skill-items-div">
+              <div class="skill-item-div">
+                <span class="skill-icon-span">💻</span>
+                <span class="skill-name-span">VS Code</span>
+              </div>
+              <div class="skill-item-div">
+                <span class="skill-icon-span">🖥️</span>
+                <span class="skill-name-span">Visual Studio</span>
+              </div>
+              <div class="skill-item-div">
+                <span class="skill-icon-span">🐙</span>
+                <span class="skill-name-span">Git</span>
+              </div>
             </div>
           </div>
-          <h3 class="project-title-h3">Student Record System</h3>
-          <p class="project-description-p">
-            Both console (Python and VB) and GUI (VB) program that store and manages student records using OOP concepts.
-          </p>
-          <div class="project-tags-div">
-            <span class="tag-span">Python</span>
-            <span class="tag-span">Visual Basic .Net</span>
-          </div>
-        </article>
 
-        <article class="project-card-article">
-          <div class="project-card-header-div">
-            <span class="project-icon-span">🌐</span>
-            <div class="project-links-div">
-              <a href="#" class="project-link-a">Code</a>
-              <a href="#" class="project-link-a">Live</a>
-            </div>
-          </div>
-          <h3 class="project-title-h3">Portfolio Website</h3>
-          <p class="project-description-p">
-            A perosnal protfolio website built with HTML, CSS and JavaScript. The one you are looking at right now!
-          </p>
-          <div class="project-tags-div">
-            <span class="tag-span">HTML</span>
-            <span class="tag-span">CSS</span>
-            <span class="tag-span">JavaScript</span>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <section id="contact-section">
-      <div class="section-header-div">
-        <h2>Contact Me</h2>
-        <p class="section-subtitle-p">Let's work together</p>
-      </div>
-      <div class="contact-content-div">
-        <div class="contact-info-div">
-          <h3>Get In Touch</h3>
-          <p>
-            I am always open to new opportunities, collaborations, or just a friendly conversation about tech!
-          </p>
-          <div class="contact-details-div">
-            <div class="contact-item-div">
-              <span class="contact-icon-span">📧</span>
-              <span>gidosac11@gmail.com</span>
-            </div>
-            <div class="contact-item-div">
-              <span class="contact-icon-span">📍</span>
-              <span>Koforidua, Ghana</span>
-            </div>
-            <div class="contact-item-div">
-              <span class="contact-icon-span">🎓</span>
-              <span>Koforidua Technical University</span>
+          <div class="skill-category-div">
+            <h3>Concepts</h3>
+            <div class="skill-items-div">
+              <div class="skill-item-div">
+                <span class="skill-icon-span">🧩</span>
+                <span class="skill-name-span">OOP</span>
+              </div>
+              <div class="skill-item-div">
+                <span class="skill-icon-span">🔢</span>
+                <span class="skill-name-span">Data Structures</span>
+              </div>
+              <div class="skill-item-div">
+                <span class="skill-icon-span">🔍</span>
+                <span class="skill-name-span">Algorithms</span>
+              </div>
             </div>
           </div>
         </div>
-        <form class="contact-form" id="contact-form">
-          <div class="form-group-div">
-            <label for="name">Your Name</label>
-            <input type="text" name="name" id="name" placeholder="Your name here..." required>
-          </div>
-          <div class="form-group-div">
-            <label for="email">Your Email</label>
-            <input type="email" name="email" id="email" placeholder="Your email here..." required>
-          </div>
-          <div class="form-group-div">
-            <label for="message">Your Message</label>
-            <textarea name="message" id="message" rows="5" placeholder="Write a message" required>
-            </textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Send Message</button>
-        </form>
-      </div>
-    </section>
-  </main>
+      </section>
 
-  <footer>
-    <div class="footer-content-div">
-      <p class="footer-name-p">Brainiac-Sama</p>
-      <p class="footer-tagline-p">Built with ❤️ using HTML, CSS & JavaScript</p>
-      <div class="footer-links-div">
-        <a href="#hero-section">Home</a>
-        <a href="#about-section">About</a>
-        <a href="#projects-section">Projects</a>
-        <a href="#contact-section">Contact</a>
-      </div>
-      <p class="footer-copy-p">&copy; 2026 Brainiac-Sama. All rights reserved.</p>
-    </div>
-  </footer>
+      <section id="projects-section">
+        <div class="section-header-div">
+          <h2>My Projects</h2>
+          <p class="section-subtitle-p">Things I have built</p>
+        </div>
+        <div class="projects-grid-div">
+          <article class="project-card-article">
+            <div class="project-card-header-div">
+              <span class="project-icon-span">🗓️</span>
+              <div class="project-links-div">
+                <a
+                  href="https://corbyscotch.github.io/my-todo-app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-link-a"
+                  >Code</a
+                >
+                <a href="#" class="project-link-a">Live</a>
+              </div>
+            </div>
+            <h3 class="project-title-h3">TODO App</h3>
+            <p class="project-description-p">
+              A todo app that saves your inputs temporarily on local storage.
+              Updates tasks in real time as you check them completed or not.
+            </p>
+            <div class="project-tags-div">
+              <span class="tag-span">JavaScript</span>
+              <span class="tag-span">HTML & CSS</span>
+            </div>
+          </article>
 
-  <script src="script.js"></script>
-</body>
+          <article class="project-card-article">
+            <div class="project-card-header-div">
+              <span class="project-icon-span">🎰</span>
+              <div class="project-links-div">
+                <a
+                  href="https://corbyscotch.github.io/password-generator/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-link-a"
+                  >Code</a
+                >
+                <a href="#" class="project-link-a">Live</a>
+              </div>
+            </div>
+            <h3 class="project-title-h3">Password Generator</h3>
+            <p class="project-description-p">
+              Generates a truly random password using cryptographically random
+              combinations. Options to decide whether to include symbols,
+              upper/lower case or numbers with a strength meter.
+            </p>
+            <div class="project-tags-div">
+              <span class="tag-span">JavaScript</span>
+              <span class="tag-span">HTML & CSS</span>
+            </div>
+          </article>
+
+          <article class="project-card-article">
+            <div class="project-card-header-div">
+              <span class="project-icon-span">📃</span>
+              <div class="project-links-div">
+                <a
+                  href="https://corbyscotch.github.io/my-quiz/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-link-a"
+                  >Code</a
+                >
+                <a href="#" class="project-link-a">Live</a>
+              </div>
+            </div>
+            <h3 class="project-title-h3">Quiz Game</h3>
+            <p class="project-description-p">
+              A quiz game that uses API to generate ever random quiz questions.
+              Play 10 multiple-choice questions with a counte to tract progress
+              and real time answer highlight when a wrong options is pressed.
+            </p>
+            <div class="project-tags-div">
+              <span class="tag-span">JavaScript</span>
+              <span class="tag-span">HTML & CSS</span>
+            </div>
+          </article>
+
+          <article class="project-card-article">
+            <div class="project-card-header-div">
+              <span class="project-icon-span">🌐</span>
+              <div class="project-links-div">
+                <a href="#" class="project-link-a">Code</a>
+                <a href="#" class="project-link-a">Live</a>
+              </div>
+            </div>
+            <h3 class="project-title-h3">Portfolio Website</h3>
+            <p class="project-description-p">
+              A perosnal protfolio website built with HTML, CSS and JavaScript.
+              The one you are looking at right now!
+            </p>
+            <div class="project-tags-div">
+              <span class="tag-span">HTML</span>
+              <span class="tag-span">CSS</span>
+              <span class="tag-span">JavaScript</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact-section">
+        <div class="section-header-div">
+          <h2>Contact Me</h2>
+          <p class="section-subtitle-p">Let's work together</p>
+        </div>
+        <div class="contact-content-div">
+          <div class="contact-info-div">
+            <h3>Get In Touch</h3>
+            <p>
+              I am always open to new opportunities, collaborations, or just a
+              friendly conversation about tech!
+            </p>
+            <div class="contact-details-div">
+              <div class="contact-item-div">
+                <span class="contact-icon-span">🤵🏿‍♂️</span>
+                <a
+                  href="https://github.com/CorbyScotch"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style="color: var(--text-muted); text-decoration: none"
+                  >github.com/CorbyScotch</a
+                >
+              </div>
+              <div class="contact-item-div">
+                <span class="contact-icon-span">📧</span>
+                <span>gidosac11@gmail.com</span>
+              </div>
+              <div class="contact-item-div">
+                <span class="contact-icon-span">📍</span>
+                <span>Koforidua, Ghana</span>
+              </div>
+              <div class="contact-item-div">
+                <span class="contact-icon-span">🎓</span>
+                <span>Koforidua Technical University</span>
+              </div>
+            </div>
+          </div>
+          <form class="contact-form" id="contact-form">
+            <div class="form-group-div">
+              <label for="name">Your Name</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Your name here..."
+                required
+              />
+            </div>
+            <div class="form-group-div">
+              <label for="email">Your Email</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Your email here..."
+                required
+              />
+            </div>
+            <div class="form-group-div">
+              <label for="message">Your Message</label>
+              <textarea
+                name="message"
+                id="message"
+                rows="5"
+                placeholder="Write a message"
+                required
+              >
+              </textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content-div">
+        <p class="footer-name-p">Brainiac-Sama</p>
+        <p class="footer-tagline-p">
+          Built with ❤️ using HTML, CSS & JavaScript
+        </p>
+        <div class="footer-links-div">
+          <a href="#hero-section">Home</a>
+          <a href="#about-section">About</a>
+          <a href="#projects-section">Projects</a>
+          <a href="#contact-section">Contact</a>
+        </div>
+        <p class="footer-copy-p">
+          &copy; 2026 Brainiac-Sama. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>

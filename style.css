@@ -1,6 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
-:root { /* used to store css variables (like variables in PLs) */
+:root {
+  /* used to store css variables (like variables in PLs) */
   --primary-color: #6c63ff;
   --secondary-color: #f50057;
   --dark-color: #0a0a0a;
@@ -10,11 +11,11 @@
   --text-muted: #a0a0a0;
   --border-color: #2a2a2a;
   --gradient: linear-gradient(135deg, #6c63ff, #f500f5);
-
 }
 
 /* reset and base settings */
-* { /* wildcard selector: used to select all elements on html page */
+* {
+  /* wildcard selector: used to select all elements on html page */
   margin: 0;
   padding: 0;
   box-sizing: border-box; /* make sure size doesn't go over when width, and padding are added */
@@ -26,7 +27,7 @@ html {
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   background-color: var(--dark-color); /* var() is used to call css variables */
   color: var(--text-color);
   line-height: 1.6;
@@ -43,7 +44,7 @@ body {
   background: var(--gradient);
   /* background-clip and -webkit-background-clip are same: make text have gradient colors*/
   background-clip: text; /* only fill gradient color to text letters but text letters are white so covers the color and thus won't work yet*/
-   /* -webkit is like an experimental feature (of background-clip) by Chrome & Safari, like beta version until it is widely supported. writing both ensures it works on every browser */
+  /* -webkit is like an experimental feature (of background-clip) by Chrome & Safari, like beta version until it is widely supported. writing both ensures it works on every browser */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; /* makes the text's white color transparent so the gradient color will show inside */
   margin-bottom: 10px;
@@ -75,9 +76,15 @@ header {
   transition: all 0.3s ease; /* all changes to this element animate smoothly over 0.3s */
 }
 
-header.scrolled { /* scrolled is a property waiting to be added by javascript.
+header.scrolled {
+  /* scrolled is a property waiting to be added by javascript.
   adding header ensures it is only added if the element is a header, else ignored */
-  background-color: rgba(10, 10, 10, 0.95); /* last value for opacity, 0 fully transparent, 1 fully opagque*/
+  background-color: rgba(
+    10,
+    10,
+    10,
+    0.95
+  ); /* last value for opacity, 0 fully transparent, 1 fully opagque*/
   border-bottom: 1px solid var(--border-color);
   padding: 15px 10%;
 }
@@ -114,8 +121,9 @@ nav ul li a {
   transition: color 0.3s ease;
 }
 
-nav ul li a::after { /* pseudo element: creates a fake element after each link */
-  content: '';
+nav ul li a::after {
+  /* pseudo element: creates a fake element after each link */
+  content: "";
   position: absolute; /* looks for a relative position and sticks to it */
   bottom: -5px;
   left: 0;
@@ -127,7 +135,6 @@ nav ul li a::after { /* pseudo element: creates a fake element after each link *
 
 nav ul li a:hover {
   color: var(--primary-color);
-
 }
 
 nav ul li a:hover::after {
@@ -143,16 +150,18 @@ nav ul li a:hover::after {
   overflow: hidden; /* hide any child element who goes over the section */
 }
 
-#hero-section::before { /* pseudo-element before actual element */
+#hero-section::before {
+  /* pseudo-element before actual element */
   /* border: solid white; */
-  content: '';
+  content: "";
   position: absolute;
   top: -50%;
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient( /* spreads outward from a center point like ripples in water */
-    circle at center,
+  background: radial-gradient(
+    /* spreads outward from a center point like ripples in water */ circle at
+      center,
     rgba(108, 99, 255, 0.1) 0%,
     rgba(245, 0, 87, 0.05) 40%,
     transparent 70%
@@ -161,9 +170,14 @@ nav ul li a:hover::after {
   animation: rotateBg 20s linear infinite;
 }
 
-@keyframes rotateBg { /* defines what the animation does. like a flipping book, from 0deg to 360deg (full circle) */
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg);}
+@keyframes rotateBg {
+  /* defines what the animation does. like a flipping book, from 0deg to 360deg (full circle) */
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .hero-content-div {
@@ -207,8 +221,13 @@ nav ul li a:hover::after {
 }
 
 @keyframes blink {
-  0%, 100% {opacity: 1;}
-  50% {opacity: 0;}
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
 .hero-description-p {
@@ -480,14 +499,12 @@ nav ul li a:hover::after {
 
 #contact-section {
   border-color: var(--dark-color);
-
 }
 
 .contact-content-div {
   display: flex;
   gap: 80;
   align-items: flex-start; /* when 2 element are side by side and one is taller than the other, flex-start align both to the top so they all start from the top */
-  
 }
 
 .contact-info-div {
@@ -506,7 +523,6 @@ nav ul li a:hover::after {
   font-size: 0.95rem;
   line-height: 1.8;
   margin-bottom: 30px;
-  
 }
 
 .contact-details-div {
@@ -521,7 +537,6 @@ nav ul li a:hover::after {
   gap: 15px;
   color: var(--text-muted);
   font-size: 0.95rem;
-  
 }
 
 .contact-icon-span {
@@ -541,7 +556,7 @@ nav ul li a:hover::after {
 /* descendant selector: styling .contact-icon-span when .contact-item-div is hovered */
 .contact-item-div:hover .contact-icon-span {
   border-color: var(--primary-color);
-  background-color: rgba(108, 99, blue,255 0.1);
+  background-color: rgba(108, 99, blue, 255 0.1);
 }
 
 /* CONTACT FORM */
@@ -565,27 +580,30 @@ nav ul li a:hover::after {
 }
 
 /* comma-separated to apply style to both elements */
-.form-group-div input, .form-group-div textarea {
+.form-group-div input,
+.form-group-div textarea {
   background-color: var(--card-color);
   border: 1px solid var(--border-color);
   border-radius: 10px;
   padding: 14px 18px;
   color: var(--text-color);
   font-size: 0.95rem;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   transition: all 0.3s ease;
   outline: none; /* removes default blue outline around focused inputs */
   resize: none; /* disables the ability to drag the textarea box to resize */
 }
 
 /* style when input fields are clicked */
-.form-group-div input:focus, .form-group-div textarea:focus {
+.form-group-div input:focus,
+.form-group-div textarea:focus {
   border-color: var(--primary-color);
   box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.15);
 }
 
 /* styling the placeholder text. although different from before and after, to style is you call it same as those 2 ghost elements */
-.form-group-div input::placeholder, .form-group-div textarea::placeholder {
+.form-group-div input::placeholder,
+.form-group-div textarea::placeholder {
   color: var(--text-muted);
 }
 
@@ -602,7 +620,6 @@ footer {
   align-items: center;
   gap: 20px;
   text-align: center;
-  
 }
 
 .footer-name-p {
@@ -662,7 +679,9 @@ footer {
 .project-card-article,
 .contact-content-div,
 .footer-content-div {
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
 }
 
 /* FORM MESSAGES */
@@ -675,8 +694,8 @@ footer {
 }
 
 .form-message.success {
-  background-color: rgba(0. 200, 100, 0.15);
-  border: 1px solid rgba(0. 200, 100, 0.4);
+  background-color: rgba(0 200, 100, 0.15);
+  border: 1px solid rgba(0 200, 100, 0.4);
   color: #00c864;
 }
 
@@ -785,7 +804,6 @@ footer {
     cursor: pointer;
     padding: 5px;
     z-index: 1001;
-    
   }
 
   .hamburger-button span {
@@ -827,7 +845,6 @@ footer {
   nav ul.open li a {
     font-size: 1.5rem;
   }
-
 }
 
 @media (max-width: 480px) {
@@ -840,7 +857,7 @@ footer {
   .hero-name-h1 {
     font-size: 2.5rem;
   }
-  .section-header-div h2{
+  .section-header-div h2 {
     font-size: 2rem;
   }
   .about-image-div img {
