@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
   </head>
   <body>
     <header>
@@ -293,7 +297,21 @@
                 >
               </div>
               <div class="contact-item-div">
-                <span class="contact-icon-span">📧</span>
+                <span class="contact-icon-span"
+                  ><i class="fab fa-whatsapp"></i
+                ></span>
+                <a
+                  href="https://wa.me/233540996365?text=Hi!%20I%20visited%20your%20portfolio%20and%20I'd%20like%20to%20connect."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style="color: var(--text-muted); text-decoration: none"
+                  >Chat on WhatsApp</a
+                >
+              </div>
+              <div class="contact-item-div">
+                <span class="contact-icon-span"
+                  ><i class="fa fa-envelope"></i
+                ></span>
                 <span>gidosac11@gmail.com</span>
               </div>
               <div class="contact-item-div">
@@ -306,7 +324,13 @@
               </div>
             </div>
           </div>
-          <form class="contact-form" id="contact-form">
+          <form
+            class="contact-form"
+            id="contact-form"
+            action="https://formspree.io/f/xvzlbejd"
+            method="post"
+          >
+            <input type="hidden" name="_replyto" value="gidosac@gmail.com" />
             <div class="form-group-div">
               <label for="name">Your Name</label>
               <input
@@ -361,7 +385,13 @@
         </p>
       </div>
     </footer>
-
+    <a
+      href="https://wa.me/233540996365?text=Hi!%20I%20visited%20your%20portfolio%20and%20I'd%20like%20to%20connect."
+      class="whatsapp-float"
+      target="_blank"
+      rel="noopener noreferrer"
+      ><i class="fab fa-whatsapp"></i
+    ></a>
     <script src="script.js"></script>
   </body>
 </html>
