@@ -127,7 +127,7 @@ animatedElements.forEach(function (element) {
 /* CONTACT FORM */
 const contactForm = document.querySelector("#contact-form");
 
-contactForm.addEventListener("submit", (event) => {
+contactForm.addEventListener("submit", async function (event) {
   event.preventDefault(); // prevent page from refreshing when pressed submit
 
   // getting values from each field
@@ -141,17 +141,34 @@ contactForm.addEventListener("submit", (event) => {
     return;
   }
 
-  if (!email.includes("@")) {
-    showMessage("Please enter a valid email!", "error");
-    return;
+  // showing sending state
+  const submitBtn = document.querySelector("#contact-form .btn");
+  submitBtn.textContent = "Sending...";
+  submitBtn.disabled = true;
+
+  try {
+    const response = await fetch(contactForm.action, {
+      method: "POST",
+      body: new FormData(contactForm),
+      headers: { Accept: "application/json" },
+    });
+
+    if (response.ok) {
+      showMessage(`Thanks ${username} I'll get back to you soon 🚀`, "success");
+      contactForm.reset();
+    } else {
+      showMessage("Oops! Something went wrong. Please try again.", "error");
+    }
+  } catch (error) {
+    showMessage("Oops! Something went wrong. Please try again.", "error");
   }
 
-  // all is well
-  showMessage(`Thanks ${username} I'll get back to you soon 🚀`, "success");
-  contactForm.reset();
+  // restore button
+  submitBtn.textContent = "Send Message 🚀";
+  submitBtn.disabled = false;
 });
 
-// HELPER FUNCITON - SHOW MESSAGE
+// HELPER FUNCTION - SHOW MESSAGE
 function showMessage(text, type) {
   // creating a new div element
   const messageDiv = document.createElement("div");
